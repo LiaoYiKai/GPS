@@ -32,9 +32,9 @@
                 android:ems="10"
                 android:id="@+id/hr"
                 android:layout_weight="0"
-                android:text="00"
                 android:gravity="center"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:text="00" />
 
             <TextView
                 android:layout_width="50dp"
@@ -53,9 +53,9 @@
                 android:ems="10"
                 android:id="@+id/mm"
                 android:layout_weight="0"
-                android:text="00"
                 android:gravity="center"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:text="00" />
 
             <TextView
                 android:layout_width="50dp"
@@ -73,9 +73,9 @@
                 android:ems="10"
                 android:id="@+id/ss"
                 android:layout_weight="0"
-                android:text="00"
                 android:gravity="center"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:text="00" />
 
             <TextView
                 android:layout_width="50dp"
@@ -89,11 +89,16 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="245dp"
             android:gravity="center"
-            android:layout_weight="0.04">
+            android:layout_weight="1">
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/listviewApp">
+            </ListView>
 
         </LinearLayout>
 
@@ -106,7 +111,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Show_Time"
+                android:id="@+id/Show"
                 android:text="剩餘時間"
                 android:textSize="16dp"
                 android:nestedScrollingEnabled="true"
