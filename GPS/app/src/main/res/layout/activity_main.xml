@@ -91,11 +91,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="245dp"
+            android:layout_height="240dp"
             android:gravity="center"
             android:layout_weight="1">
             <ListView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:id="@+id/listviewApp">
             </ListView>
@@ -124,6 +124,14 @@
                 android:id="@+id/Start"
                 android:nestedScrollingEnabled="true"
                 android:onClick="start" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="測試"
+                android:id="@+id/checkBox"
+                android:nestedScrollingEnabled="true"
+                android:onClick="checkBox" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

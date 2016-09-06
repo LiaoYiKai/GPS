@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,23 +34,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText SS;
     private Button Show;
     private Button start;
-    long x , y, z;
+    long x , y , z ;
+
 
     private ListView listview = null;
     private ArrayList<AppInfo> mlistAppInfo;
+
+    int boxNumber = 0;
+    CheckBox chk;
+    CheckBox clickchk;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*setContentView(R.layout.browse_app_item);*/
 
         HR = (EditText)findViewById(R.id.hr);
         MM = (EditText)findViewById(R.id.mm);
         SS = (EditText)findViewById(R.id.ss);
         Show = (Button)findViewById(R.id.Show);
-        Show.setOnClickListener(this);
         start = (Button)findViewById(R.id.Start);
+        Show.setOnClickListener(this);
         start.setOnClickListener(this);
 
 
@@ -59,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         BrowseAppInfoAdapter browseAppInfoAdapter = new BrowseAppInfoAdapter(this,mlistAppInfo);
         listview.setAdapter(browseAppInfoAdapter);
         listview.setOnItemClickListener(this);
+
+
     }
     @Override
     public void onClick(View v) {
@@ -95,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         SS.setCursorVisible(true);
                         Toast toast = Toast.makeText(MainActivity.this, "時間到！！！", Toast.LENGTH_LONG);
                         toast.show();
-
                     }
                 }.start();
                 break;
@@ -116,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(mlistAppInfo != null){
             mlistAppInfo.clear();
             for(ResolveInfo reInfo : resolveInfos){
+                boxNumber = boxNumber + 1;
+                chk.setId(boxNumber);
                 String activityName = reInfo.activityInfo.name;
                 String pkgName = reInfo.activityInfo.packageName;
                 String appLabel = (String) reInfo.loadLabel(pm);
@@ -130,9 +139,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 appInfo.setAppIcon(icon);
                 appInfo.setIntent(launhIntent);
                 mlistAppInfo.add(appInfo);
-                System.out.println(appLabel + "activityName---" + activityName + "pkgName"+ pkgName);
+                System.out.println(appLabel + "activityName---" + activityName + "pkgName---"+ pkgName);
             }
         }
+    }
+    public void checkBox(View view){
+
     }
 }
 
